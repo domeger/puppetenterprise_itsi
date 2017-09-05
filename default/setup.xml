@@ -1,0 +1,14 @@
+<setup>
+    <block title="Puppet for IT Service Intelligence" endpoint="admin/alert_actions" entity="puppetenterprise_itsi">
+        <text>Puppet Configuration Settings</text>
+        <input field="param.endpoint_url">
+            <label>Puppet API URL (required)</label>
+            <type>text</type>
+        </input>
+        <input endpoint="storage/passwords" entity=":puppetenterprise_itsi_password:" field="password">
+          <text>Puppet Enterprise Token</text>
+            <label>Token</label>
+            <type>password</type>
+        </input>
+    </block>
+</setup>

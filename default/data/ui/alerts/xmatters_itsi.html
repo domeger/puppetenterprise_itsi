@@ -1,0 +1,30 @@
+<form class="form-horizontal form-complex">
+    <div class="control-group">
+        <label class="control-label" for="action.puppetenterprise_itsi.param.recipients">
+            Recipients
+            <span class="required">*</span>
+        </label>
+
+        <div class="controls">
+            <input type="text"
+            name="action.puppetenterprise_itsi.param.recipients" id="puppetenterprise_itsi_recipients" value="%owner%"/>
+            <span class="help-block">
+                Enter the groups and people you want to receive notifications (separated by semicolons).
+            </span>
+        </div>
+    </div>
+
+    <div class="control-group">
+        <label class="control-label" for="action.puppetenterprise_itsi.param.priority">
+            Priority
+            <span class="required">*</span>
+        </label>
+        <div class="controls">
+            <select name="action.puppetenterprise_itsi.param.priority" id="puppetenterprise_itsi_priority">
+              <option value="HIGH">High</option>
+              <option value="MEDIUM">Medium</option>
+              <option value="LOW">Low</option>
+            </select>
+        </div>
+    </div>
+</form>
