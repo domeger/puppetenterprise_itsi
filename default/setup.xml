@@ -2,11 +2,11 @@
     <block title="Puppet for IT Service Intelligence" endpoint="admin/alert_actions" entity="puppetenterprise_itsi">
         <text>Puppet Configuration Settings</text>
         <input field="param.endpoint_url">
-            <label>Puppet API URL (required) - https://localhost:8080</label>
+            <label>Puppet API URL (required) - https://localhost:8143/orchestrator/v1/command/deploy</label>
             <type>text</type>
         </input>
         <input endpoint="storage/passwords" entity=":puppetenterprise_itsi_password:" field="password">
-          <text>Puppet Enterprise Token</text>
+          <text>Puppet Enterprise Token - curl -k -X POST -H 'Content-Type: application/json' -d '{"login": "<YOUR PE USER NAME>", "password": "<YOUR PE PASSWORD>"}' https://$<HOSTNAME>:4433/rbac-api/v1/auth/token</text>
             <label>Token</label>
             <type>password</type>
         </input>

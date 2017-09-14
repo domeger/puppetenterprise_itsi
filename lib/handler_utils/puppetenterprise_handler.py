@@ -6,19 +6,13 @@ import os
 import sys
 import json
 
-# pylint: disable = import-error
 from ITOA.setup_logging import setup_logging
 
 if sys.platform == "win32":
     import msvcrt
-    # Binary mode is required for persistent mode on Windows.
-# pylint: disable = no-member
     msvcrt.setmode(sys.stdin.fileno(), os.O_BINARY)
     msvcrt.setmode(sys.stdout.fileno(), os.O_BINARY)
     msvcrt.setmode(sys.stderr.fileno(), os.O_BINARY)
-# pylint: enable = no-member
-# pylint: enable = import-error
-
 
 DEFAULT_LOGGER = setup_logging('puppetenterprise.log', 'puppetenterprise.handler')
 

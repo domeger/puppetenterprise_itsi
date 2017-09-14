@@ -5,7 +5,6 @@ from common_utils.rest import RESTClient
 
 # import ITSI libraries
 from ITOA.setup_logging import setup_logging
-# pylint: enable = import-error
 
 DEFAULT_LOGGER = setup_logging('puppetenterprise.log', 'util')
 

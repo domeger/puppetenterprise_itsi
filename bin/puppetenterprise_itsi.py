@@ -100,13 +100,13 @@ SHOULD_UPDATE_CHILDREN = False
 
 def build_pe_client(username, server_uri, session_key, logger):
     """
-        Builds a new puppetenterpriseClient object
+        Builds a new puppetenterpriseclient object
         @param username: <str> an optional puppetenterprise Username
         @param server_uri: <str> the domain of the splunk server
         @param session_key: <str> a valid session key for the splunk server
         @return: <puppetenterpriseClient> an puppetenterprise Client that can be used to make requests to pe API
     """
-    pe_client = puppetenterpriseClient(logger=logger)
+    pe_client = puppetenterpriseclient(logger=logger)
     if username:
         password = get_password(
             server_uri,
@@ -139,6 +139,7 @@ class puppetenterpriseITSI(CustomEventActionBase):
 
         config = self.get_config()
         username = config['username']
+        token = config['token']
 
         self.pe_client = build_pe_client(
             username,
@@ -153,7 +154,7 @@ class puppetenterpriseITSI(CustomEventActionBase):
         self.priority = config['priority']
 
         self.logger.info(
-            'action=%s username=%s endpoint_url=%s recipients=%s priority=%s',
+            'action=%s token=%s endpoint_url=%s recipients=%s priority=%s',
             'PE_ITSI_INIT',
             username,
             self.endpoint_url,

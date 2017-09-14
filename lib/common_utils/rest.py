@@ -1,7 +1,3 @@
-"""
-    Includes functionality related to making REST calls. You can validate urls and make requests
-    via the RESTClient class.
-"""
 import json
 import urllib2
 
@@ -16,15 +12,11 @@ class RESTClientValidationException(Exception):
     """
     pass
 
-
-
 class RESTClientResponseException(Exception):
     """
         Exception Class used for REST Client Response Exceptions
     """
     pass
-
-
 
 def validate_url(url, **kwargs):
     """
@@ -80,7 +72,6 @@ class RESTClient(object):
         """
         self.logger = kwargs.get('logger', DEFAULT_LOGGER)
         self.return_json = kwargs.get('return_json', False)
-
 
     def _send_request(self, req, headers):
         """
