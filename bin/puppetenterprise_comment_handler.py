@@ -1,11 +1,4 @@
-"""
-    This file is used for PuppetEnterprise Outbound integrations in order to
-    create comments on Splunk ITSI Notable Events
-"""
 import sys
-
-# pylint: disable = import-error
-# pylint: disable = wrong-import-position
 from splunk.clilib.bundle_paths import make_splunkhome_path
 from splunk.persistconn.application import PersistentServerConnectionApplication
 sys.path.append(make_splunkhome_path(['etc', 'apps', 'puppetenterprise_itsi', 'lib']))
@@ -13,10 +6,7 @@ sys.path.append(make_splunkhome_path(['etc', 'apps', 'SA-ITOA', 'lib']))
 from handler_utils.pe_handler import PuppetEnterpriseHandler
 from ITOA.setup_logging import setup_logging
 from itsi.event_management.sdk.eventing import Event
-# pylint: enable = wrong-import-position
-# pylint: enable = import-error
 
-# The name of the log file to write to
 REST_HANDLER_LOG = 'puppetenterprise_itsi_rest.log'
 DEFAULT_LOGGER = setup_logging(REST_HANDLER_LOG, 'puppetenterprise.handlers.comment')
 
@@ -26,10 +16,7 @@ REQUIRED_FIELDS = [
 ]
 
 class CommentHandler(PuppetEnterpriseHandler, PersistentServerConnectionApplication):
-    """
-        This class extends the PersistentServerConnectionApplication and is used to
-        add a comment to notable events
-    """
+
     def __init__(self, command_line, command_arg):
         """
             initialize the object. parameters are unused

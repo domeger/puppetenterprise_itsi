@@ -1,16 +1,10 @@
-"""
-    This file is used for Puppet Enterprise Splunk ITSI Notable Event Alert Actions
-"""
 import sys
 
-# pylint: disable = import-error
-# pylint: disable = wrong-import-position
 from splunk.clilib.bundle_paths import make_splunkhome_path
 
 sys.path.append(make_splunkhome_path(['etc', 'apps', 'puppetenterprise_itsi', 'lib']))
 sys.path.append(make_splunkhome_path(['etc', 'apps', 'SA-ITOA', 'lib']))
 
-# import puppetenterprise libraries
 from common_utils.password import get_password
 from puppetenterprise_sdk.pe_event import puppetenterpriseEvent
 from puppetenterprise_sdk.pe_client import puppetenterpriseClient
@@ -19,8 +13,6 @@ from puppetenterprise_sdk.pe_client import puppetenterpriseClient
 from ITOA.setup_logging import setup_logging
 from itsi.event_management.sdk.eventing import Event
 from itsi.event_management.sdk.custom_event_action_base import CustomEventActionBase
-# pylint: enable = wrong-import-position
-# pylint: enable = import-error
 
 # The name of the log file to write to
 PE_ITSI_LOG = 'puppetenterprise_itsi.log'
@@ -347,15 +339,13 @@ class puppetenterpriseITSI(CustomEventActionBase):
                     if is_correlation_event or self.should_update_correlation is not True:
                         self.add_success_comment_to_event(event_id, request_id)
 
-# pylint: disable = broad-except
         except ValueError:
-            pass # best case, try every event.
+            pass
         except Exception, exception:
             self.logger.error('Failed to execute PE.')
             self.logger.exception(exception)
             sys.exit(1)
         return
-# pylint: enable = broad-except
 
 if __name__ == '__main__':
     LOGGER = setup_logging(pe_ITSI_LOG, 'puppetenterprise.itsi')

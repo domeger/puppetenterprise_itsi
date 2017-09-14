@@ -1,1 +1,1 @@
-Puppet Enterprise Alert Action Framework
+Splunk ITSI Module for Puppet Enterprise

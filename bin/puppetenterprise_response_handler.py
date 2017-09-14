@@ -1,11 +1,5 @@
-"""
-    This file is used for PuppetEnterprise Outbound integrations in order to
-    create comments and handle responses in Splunk ITSI Notable Events
-"""
 import sys
 
-# pylint: disable = import-error
-# pylint: disable = wrong-import-position
 from splunk.clilib.bundle_paths import make_splunkhome_path
 from splunk.persistconn.application import PersistentServerConnectionApplication
 sys.path.append(make_splunkhome_path(['etc', 'apps', 'puppetenterprise_itsi', 'lib']))
@@ -15,8 +9,6 @@ from itsi_utils.roles import is_itsi_user
 from itsi_utils.app import get_itsi_version
 from ITOA.setup_logging import setup_logging
 from itsi.event_management.sdk.eventing import Event
-# pylint: enable = wrong-import-position
-# pylint: enable = import-error
 
 # The name of the log file to write to
 REST_HANDLER_LOG = 'puppetenterprise_itsi_rest.log'
