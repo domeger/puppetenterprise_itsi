@@ -1,5 +1,4 @@
 Splunk ITSI Module for Puppet Enterprise
-[![Documentation Status](https://readthedocs.org/projects/splunktaforpuppetenterprise/badge/?version=latest)](http://splunktaforpuppetenterprise.readthedocs.io/en/latest/?badge=latest)
 [![Build Status](https://travis-ci.org/domeger/SplunkTAforPuppetEnterprise.svg?branch=master)](https://travis-ci.org/domeger/SplunkTAforPuppetEnterprise)
 ======
 
