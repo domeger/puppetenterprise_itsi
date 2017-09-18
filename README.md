@@ -67,8 +67,11 @@ The Splunk ITSI Module for Puppet Enterprise requires Splunk 6.4+ + Splunk ITSI 
 
 License
 -------
-
 See [LICENSE](LICENSE) file.
+
+Third Party License
+-------------------
+http://docs.splunk.com/Documentation/AddonBuilder/2.2.0/UserGuide/Validate#Credit_third-party_libraries
 
 Support
 -------
