@@ -87,7 +87,7 @@ https://docs.puppet.com/pe/latest/nc_groups.html
 
 Example:
 
-![Image of Example 1](https://www.github.com/puppetenterprise_itsi/screenshots/sample1.png)
+![Image of Example 1](screenshots/sample1.png)
 
 Items you should change -
 X-Authentication:  This is the token you produced with the REST call above
@@ -102,7 +102,7 @@ srvname: must correspond to the service that will get restarted as a result of t
 
 Response should be similar
 
-![Image of Example 2](https://www.github.com/puppetenterprise_itsi/screenshots/sample2.png)
+![Image of Example 2](screenshots/sample2.png)
 
 5. Goto Splunk
 
