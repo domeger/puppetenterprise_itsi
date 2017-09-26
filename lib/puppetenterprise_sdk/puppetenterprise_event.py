@@ -22,6 +22,7 @@ class PuppetEnterpriseEvent(object):
         """
         self.logger = kwargs.get('logger', DEFAULT_LOGGER)
         self.modules = {}
+        self.hostname = {}
         self.properties = {}
         self.recipients = []
         self.priority = None

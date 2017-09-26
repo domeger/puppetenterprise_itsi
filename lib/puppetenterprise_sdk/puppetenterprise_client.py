@@ -25,17 +25,15 @@ class PuppetEnterpriseClient(object):
         self.headers = {}
         self.add_header('Content-Type', 'application/json')
 
-    def add_credentials(self, username, password):
+    def add_credentials(self, password, data):
         """
-            Adds an authentication header using Basic Auth with the username and password
-            @param username: <str> The username in puppetenterprise
-            @param password: <str> The password in puppetenterprise
+            @param password: <str> The Token in puppetenterprise
         """
-        self.logger.info('action=ADD_CREDENTIALS username=%s', username)
+        self.logger.info('action=ADD_CREDENTIALS password=%s', password)
 
         # Build the auth string
-        base_64_str = base64.b64encode('%s:%s' % (username, password))
-        self.add_header('Authorization', 'Basic %s' % base_64_str)
+        self.add_header('X-Authentication', password)
+
 
     def add_header(self, key, value):
         """
@@ -52,12 +50,21 @@ class PuppetEnterpriseClient(object):
             @param puppetenterprise_event <PuppetEnterprise> The event to send to puppetenterprise
             @return <str> | False If successful, it will return the requestId from the response
         """
+
+        """
+        curl --request POST --url http://localhost:8143/orchestrator/v1/command/deploy
+        --header 'content-type: application/json'
+        --header 'x-authentication: 0000000'
+        --data '{"environment" : "module", "noop" : false, "scope: : { "nodes" : ["test-machine"] } } '
+        """
+
         self.logger.info('action=SEND_EVENT url=%s puppetenterprise_event_type=%s', url, type(puppetenterprise_event))
         rest = RESTClient(return_json=True, logger=self.logger)
 
         response_body = rest.post(
             url,
             headers=self.headers,
+            data='{"environment" : 'module', "noop" : false, "scope: : { "nodes" : ['hostname'] } }',
             body=puppetenterprise_event.get_json_payload(),
             force_https=True
         )
